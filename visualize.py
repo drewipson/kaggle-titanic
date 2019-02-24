@@ -1,3 +1,4 @@
+# Execute bash command to allow for creation of visualization files via Tkinter and Xming on Windows.
 import os 
 os.system("export DISPLAY=localhost:0.0");
 import pandas as pd
@@ -6,7 +7,7 @@ import matplotlib as p
 p.use("TkAgg");
 import matplotlib.pyplot as plt
 #Read in csv file for calculations.
-df_train = pd.read_csv("~/kaggle-titanic/train.csv");
+df_train = pd.read_csv("./train.csv");
 fig = plt.figure(figsize=(18,6))
 #Bar graph of percentage of who survived and who did not.
 plt.subplot2grid((2,3), (0,0))
