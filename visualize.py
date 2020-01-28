@@ -1,14 +1,11 @@
-import os 
-# Bash command to set localhost server to visualize data in XLaunch
-os.system("export DISPLAY=localhost:0.0");
 import pandas as pd
 import scipy
 import matplotlib as p
-p.use("TkAgg");
+p.use("TkAgg")
 import matplotlib.pyplot as plt
 
 #Read in csv file for calculations.
-df_train = pd.read_csv("./train.csv");
+df_train = pd.read_csv("./train.csv")
 fig = plt.figure(figsize=(24,8))
 
 #Bar graph of percentage of who survived and who did not.
@@ -17,17 +14,17 @@ df_train.Sex[df_train.Survived == 1].value_counts(normalize=True).plot(kind="bar
 plt.title("% of Survived wrt Sex")
 
 # Comput averages for age by all passengers, all men, all women respectively. 
-df_avg_age = df_train.Age.mean();
-men_avgage = df_train.loc[df_train.Sex == 'male', 'Age'].mean();
-fem_avgage = df_train.loc[df_train.Sex == 'female', 'Age'].mean();
+df_avg_age = df_train.Age.mean()
+men_avgage = df_train.loc[df_train.Sex == 'male', 'Age'].mean()
+fem_avgage = df_train.loc[df_train.Sex == 'female', 'Age'].mean()
 
 # Values for bar chart.
 #plt.subplot2grid((3,3), (0,1)
 
 # Generate bar graph. Set block to true when executing from script file. 
 plt.subplot2grid((3,3), (0,1))
-x_values = ["All", "Men", "Women"];
-age_values = [df_avg_age, men_avgage, fem_avgage];
+x_values = ["All", "Men", "Women"]
+age_values = [df_avg_age, men_avgage, fem_avgage]
 plt.bar(x_values,age_values,width=0.5, color=["black", "blue", "pink"])
 plt.title("Average Age by Gender")
 
@@ -61,6 +58,3 @@ plt.title("Mortality Rate wrt Class")
 
 
 plt.show(block=True)
-
-
-
